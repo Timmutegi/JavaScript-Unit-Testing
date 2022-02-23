@@ -1,5 +1,6 @@
 const functions = require('./functions');
-
+const request = require('supertest');
+const app = require('./index');
 // Test suite is the file
 // toBe
 test('Adds 2 + 2 to equal 4', () => {
@@ -32,12 +33,12 @@ test('user should be Timothy Mbaka', () => {
 // Working with async data
 
 // Promise
-test('User fetched name should be Leanne Graham', () => {
-  expect.assertions(1);
-  return functions.fetchUser().then(data => {
-    expect(data.name).toEqual('Leanne Graham');
-  });
-});
+// test('User fetched name should be Leanne Graham', () => {
+//   expect.assertions(1);
+//   return functions.fetchUser().then(data => {
+//     expect(data.name).toEqual('Leanne Graham');
+//   });
+// });
 
 // Async Await
 // test('User fetched name should be Leanne Graham', async () => {
@@ -45,3 +46,22 @@ test('User fetched name should be Leanne Graham', () => {
 //     const data = await functions.fetchUser();
 //     expect(data.name).toEqual('Leanne Graham');
 // });
+
+describe('status endpoint',  () => {
+    test("fetch user", (done) => {
+    
+        request(app)
+       .get('https://jsonplaceholder.typicode.com/users/1')
+    //    .expect('Content-Type', /text/)
+       .expect(201)
+       .then(res => {
+           res.data
+           done()
+       })
+       .catch(err => {
+           console.log(err);
+           done(err);
+       });     
+    });
+})
+
