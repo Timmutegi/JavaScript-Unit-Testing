@@ -51,17 +51,12 @@ describe('status endpoint',  () => {
     test("fetch user", (done) => {
     
         request(app)
-       .get('https://jsonplaceholder.typicode.com/users/1')
-    //    .expect('Content-Type', /text/)
-       .expect(201)
-       .then(res => {
-           res.data
-           done()
-       })
-       .catch(err => {
-           console.log(err);
-           done(err);
-       });     
+       .get('/user/user')
+       .expect(200)
+       .then(function(res) {
+        done();
+    })
+    .catch(err => done(err));   
     });
 })
 
