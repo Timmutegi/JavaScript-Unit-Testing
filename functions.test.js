@@ -47,6 +47,10 @@ test('User fetched name should be Leanne Graham', async () => {
     expect(data.name).toEqual('Leanne Graham');
 });
 
+
+// Describe breaks your test suite into components. 
+// Depending on your test strategy, you might have a describe for each function in your class, 
+// each module of your plugin, or each user-facing piece of functionality.
 describe('Get User endpoint',  () => {
     test("get user", (done) => {
     
