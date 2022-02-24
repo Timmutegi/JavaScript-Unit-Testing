@@ -47,8 +47,8 @@ test('user should be Timothy Mbaka', () => {
 //     expect(data.name).toEqual('Leanne Graham');
 // });
 
-describe('status endpoint',  () => {
-    test("fetch user", (done) => {
+describe('Get User endpoint',  () => {
+    test("get user", (done) => {
     
         request(app)
        .get('/user/user')
@@ -60,3 +60,40 @@ describe('status endpoint',  () => {
     });
 })
 
+
+describe('Post Message',  () => {
+    test("post", (done) => {
+    
+        request(app)
+        .post('/user/post')
+        .send({
+            title: 'sunt aut facere repellat provident',
+            body: 'sunt aut facere repellat provident',
+            userId: 1
+          })
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .then(function(res) {
+                done();
+            })
+        .catch(err => done(err));  
+
+    });
+})
+
+describe('Delete Post Message',  () => {
+    test("delete post", (done) => {
+    
+        request(app)
+        .delete('/user/post/1')
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .then(function(res) {
+                done();
+            })
+        .catch(err => done(err));  
+
+    });
+})
