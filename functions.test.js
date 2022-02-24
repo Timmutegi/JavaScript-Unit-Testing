@@ -84,7 +84,6 @@ describe('Post Message',  () => {
 
 describe('Delete Post Message',  () => {
     test("delete post", (done) => {
-    
         request(app)
         .delete('/user/post/1')
         .set('Accept', 'application/json')
