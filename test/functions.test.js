@@ -1,6 +1,7 @@
-const functions = require("./functions");
+const functions = require("../functions");
 const request = require("supertest");
-const app = require("./index");
+const app = require("../index");
+
 // Test suite is the file
 // toBe
 test("Adds 2 + 2 to equal 4", () => {

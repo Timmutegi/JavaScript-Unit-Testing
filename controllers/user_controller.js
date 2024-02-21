@@ -46,7 +46,6 @@ class UserController {
         });
      }
 
-    //  req.params.username
 }
 
 exports.UserController = UserController;
