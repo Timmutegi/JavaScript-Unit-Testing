@@ -11,16 +11,16 @@ class DBManager {
 	}
 
 	async connect() {
-        let opts = {}
+		let opts = {};
 		if (process.env.NODE_ENV === "test") {
 			this.mongoServer = await MongoMemoryServer.create();
 			this.mongoUri = this.mongoServer.getUri();
 		} else {
-			this.mongoUri = config.mongoURI;
-            opts = {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-            }
+			this.mongoUri = config.production.mongoURI;
+			opts = {
+				useNewUrlParser: true,
+				useUnifiedTopology: true,
+			};
 		}
 		await mongoose.connect(this.mongoUri, opts);
 	}
