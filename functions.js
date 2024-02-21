@@ -5,8 +5,8 @@ const functions = {
     isNull: () => null,
     checkValue: (x) => x,
     createUser: () => {
-        const user = { firstName: 'Timothy' };
-        user['lastName'] = 'Mbaka';
+        const user = { firstName: 'John' };
+        user['lastName'] = 'Doe';
         return user;
     },
     fetchUser: () =>
