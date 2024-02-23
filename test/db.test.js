@@ -1,20 +1,20 @@
 const request = require("supertest");
 const app = require("../app");
-const appDb = require("../db/db_manager");
+const create = require("../db/test_db_manager");
 
-jest.setTimeout(60000);
+// jest.setTimeout(60000);
 
-const DBManager = new appDb.DBManager();
 
 describe("User route", () => {
-	let id = "";
+	let testDb;
 
-	beforeAll(() => {
-		return DBManager.connect();
+	beforeAll(async () => {
+		testDb = await create();
+		return testDb.connect();
 	});
 
 	afterAll(() => {
-		return DBManager.close();
+		return testDb.close();
 	});
 
 	test("should return a 201 status code if user is created successfully", (done) => {

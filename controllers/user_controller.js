@@ -10,10 +10,10 @@ class UserController {
 				password: req.body.password,
 			});
 
-			// console.log("user:: ", user);
+			console.log("user:: ", user);
 			await user.save();
 
-			res.status(201).json({
+			return res.status(201).json({
 				message: "User created successfully",
 				data: {
 					id: user._id,
@@ -29,12 +29,12 @@ class UserController {
 		try {
 			var user = await User.findOne({ _id: req.params.id });
 			if (user) {
-				res.status(200).json({
+				return res.status(200).json({
 					id: user._id,
 					username: user.username,
 				});
 			} else {
-				res.status(404).json({ message: "User does not exist" });
+				return res.status(404).json({ message: "User does not exist" });
 			}
 		} catch (e) {
 			console.log("findUser error:: ", e);
