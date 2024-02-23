@@ -2,7 +2,7 @@ const request = require("supertest");
 const app = require("../app");
 const create = require("../db/test_db_manager");
 
-// jest.setTimeout(60000);
+jest.setTimeout(60000);
 
 
 describe("User route", () => {
