@@ -5,9 +5,7 @@ It works with various javascript frameworks or packages like React, Node, Typesc
 Supertest provides a high-level abstraction for testing HTTP, while still allowing you to drop down to the lower-level API provided by superagent
 
 ## Installation
-`npm install jest`
-
-`npm install supertest -- save-dev`
+`npm install`
 
 ## Run Tests
 `npm run test`
