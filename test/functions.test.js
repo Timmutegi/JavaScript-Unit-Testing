@@ -33,12 +33,12 @@ test("should be falsy", () => {
 });
 
 // toEqual
-test("user should be Timothy Mbaka", () => {
+test("user should be John Doe", () => {
     //Act
     const result = functions.createUser()
 	expect(result).toEqual({
-		firstName: "Timothy",
-		lastName: "Mbaka",
+		firstName: "John",
+		lastName: "Doe",
 	});
 });
 
