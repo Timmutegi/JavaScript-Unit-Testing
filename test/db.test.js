@@ -7,6 +7,7 @@ jest.setTimeout(60000);
 
 describe("User route", () => {
 	let testDb;
+	let id;
 
 	beforeAll(async () => {
 		testDb = await create();

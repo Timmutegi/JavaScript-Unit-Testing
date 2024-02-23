@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-const { MongoMemoryServer } = require("mongodb-memory-server");
-const config = require("../config/config");
 
 class DBManager {
 	constructor(mongoURI, opts, mongoServer) {
@@ -10,18 +8,6 @@ class DBManager {
 	}
 
 	async connect() {
-		// let opts = {};
-		// if (process.env.NODE_ENV === "test") {
-			this.mongoServer = await MongoMemoryServer.create();
-
-			this.mongoUri = this.mongoServer.getUri();
-		// } else {
-		// 	this.mongoUri = config.production.mongoURI;
-		// 	opts = {
-		// 		useNewUrlParser: true,
-		// 		useUnifiedTopology: true,
-		// 	};
-		// }
 		await mongoose.connect(this.mongoUri, this.opts);
 	}
 
@@ -30,15 +16,6 @@ class DBManager {
 		if (this.mongoServer) {
 			await this.mongoServer.stop();
 		}
-
-		// if (process.env.NODE_ENV === "test") {
-		// 	await mongoose.disconnect();
-		// 	if (this.mongoServer) {
-		// 		await this.mongoServer.stop();
-		// 	}
-		// } else {
-		// 	await mongoose.disconnect();
-		// }
 	}
 
 	async cleanup() {
