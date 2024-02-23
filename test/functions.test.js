@@ -1,6 +1,6 @@
 const functions = require("../functions");
 const request = require("supertest");
-const app = require("../index");
+const app = require("../app");
 
 // Test suite is the file
 // toBe
